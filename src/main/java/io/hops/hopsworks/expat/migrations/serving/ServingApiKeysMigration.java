@@ -294,7 +294,7 @@ public class ServingApiKeysMigration implements MigrateStep {
       connection.commit();
       connection.setAutoCommit(true);
     } catch (IllegalStateException | SQLException ex) {
-      String errorMsg = "Could not migrate serving api keys";
+      String errorMsg = "Could not rollback serving api keys";
       LOGGER.error(errorMsg);
       throw new RollbackException(errorMsg, ex);
     } finally {
